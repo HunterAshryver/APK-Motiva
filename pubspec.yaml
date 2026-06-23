@@ -1,5 +1,5 @@
 name: robo_app
-description: App para controlar robô e ler sensores via ESP32 (WiFi/WebSocket)
+description: Motiva Robô - Sistema de Monitoramento e Controle
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -9,9 +9,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  web_socket_channel: ^2.4.0
+  web_socket_channel: ^3.0.3
   shared_preferences: ^2.2.2
   url_launcher: ^6.2.5
+  google_maps_flutter: ^2.9.0     # Mapa
 
 dev_dependencies:
   flutter_test:

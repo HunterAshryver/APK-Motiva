@@ -1,46 +1,51 @@
 import 'package:flutter/material.dart';
 
-/// Card simples para mostrar uma leitura de sensor.
-/// Largura fixa (padrão 100) para alinhar bem dentro de um [Wrap].
 class SensorTile extends StatelessWidget {
   final String label;
   final String value;
   final IconData icon;
-  final double width;
+  final Color? borderColor;
 
   const SensorTile({
     super.key,
     required this.label,
     required this.value,
     required this.icon,
-    this.width = 100,
+    this.borderColor,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width,
+      width: 115,
       child: Card(
-        elevation: 1,
+        elevation: 4,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(14),
+          side: BorderSide(
+            color: borderColor ?? const Color(0xFF5D00FF),
+            width: 2.8,
+          ),
+        ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 6),
+          padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 8),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(icon, size: 24, color: Colors.blueGrey.shade700),
-              const SizedBox(height: 6),
+              Icon(icon,
+                  size: 28, color: borderColor ?? const Color(0xFF5D00FF)),
+              const SizedBox(height: 10),
               Text(
                 value,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
+              const SizedBox(height: 4),
               Text(
                 label,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 11, color: Colors.grey.shade600),
+                style: TextStyle(fontSize: 11.5, color: Colors.grey.shade400),
               ),
             ],
           ),
